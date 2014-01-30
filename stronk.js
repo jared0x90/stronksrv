@@ -28,14 +28,12 @@ var api = require('http');
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'application/json'});
 
-    app_data = {
-        "uid": 0,
-        "user": 0,
-        "rsa_passphrase": 0,
-        "rsa_fingerprint": 0
-    }
+  // Default to no error.
+  jsrp = {
+    "error": false,
 
-  res.write(JSON.stringify(app_data));
+  };
+  res.write(JSON.stringify(jsrp));
   res.end();
 }).listen(81, '0.0.0.0');
 
