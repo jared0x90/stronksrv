@@ -1,7 +1,21 @@
+/*
+
+stronk server
+=============
+
+Public TCP Ports Used
+
+80 : HTTP public
+81 : API public
+82 : Static public
+
+
+*/
+
 var connect = require('connect');
 connect.createServer(
     connect.static(__dirname + "/static/")
-).listen(8080);
+).listen(82);
 
 
 var http = require('http');
@@ -14,14 +28,14 @@ var api = require('http');
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'application/json'});
 
-app_data = {
-    "uid": 0,
-    "user": 0,
-    "rsa_passphrase": 0,
-    "rsa_fingerprint": 0
-}
+    app_data = {
+        "uid": 0,
+        "user": 0,
+        "rsa_passphrase": 0,
+        "rsa_fingerprint": 0
+    }
 
   res.write(JSON.stringify(app_data));
   res.end();
-}).listen(80, '0.0.0.0');
+}).listen(81, '0.0.0.0');
 
